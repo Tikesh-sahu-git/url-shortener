@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>URL Shortened</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 600px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    .result-box {
+      background: #f0fdf4;
+      border-left: 5px solid #4CAF50;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .short-url, .original-url {
+      word-break: break-all;
+      font-size: 16px;
+      margin: 5px 0 15px;
+    }
+
+    .short-url a {
+      color: #388e3c;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .short-url a:hover {
+      text-decoration: underline;
+    }
+
+    button.copy-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button.copy-btn:hover {
+      background-color: #43a047;
+    }
+
+    a.return-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a.return-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✅ URL Shortened Successfully!</h1>
+    
+    <div class="result-box">
+      <h3>Short URL:</h3>
+      <p class="short-url">
+        <a href="<%= shortUrl %>" target="_blank"><%= shortUrl %></a>
+      </p>
+      <button class="copy-btn" onclick="copyToClipboard('<%= shortUrl %>')">Copy Short URL</button>
+      
+      <h3 style="margin-top: 25px;">Original URL:</h3>
+      <p class="original-url"><%= originalUrl %></p>
+    </div>
+
+    <a href="/" class="return-link">🔁 Shorten another URL</a>
+  </div>
+
+  <script>
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Short URL copied to clipboard!");
+      }).catch(err => {
+        alert("Failed to copy: " + err);
+      });
+    }
+  </script>
+</body>
+</html>
