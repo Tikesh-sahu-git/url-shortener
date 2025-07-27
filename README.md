@@ -4,7 +4,7 @@ A simple URL Shortener web application built using **Node.js**, **Express.js**, 
 
 ---
 
-## 📸 Preview
+## 📸 Preview 
 
 > Two main views:
 - `index.ejs`: Input form for the long URL
